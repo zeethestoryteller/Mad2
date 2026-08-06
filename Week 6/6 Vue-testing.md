@@ -1,4 +1,4 @@
-###Module 6, Lecture 4: Vue Testing & Cross-Browser Strategies
+### Module 6, Lecture 4: Vue Testing & Cross-Browser Strategies
 
 ---
 
