@@ -1,4 +1,4 @@
-Here are structured notes based on the lecture [W6_L3: Vue - managing components | single file components and build tools](https://www.youtube.com/watch?v=zjGtbOZAS9A) that you can write directly into your notebook:
+### managing components
 
 ---
 
@@ -23,8 +23,56 @@ Vue solves these problems using `.vue` files, which split the code into three cl
 2. **Script :** JavaScript logic utilizing ES6 modules (`export default`, imports, etc.).
 3. **Style :** CSS styling that can be marked as **scoped**, ensuring styles apply only to that specific component.
 
-* **Separation of Concerns:** Although HTML, CSS, and JS are in one file, they remain cleanly separated by sections because logically they belong together.
+* **Separation of Concerns:** Although HTML, CSS, and JS are in one file, they remain cleanly separated by sections because logically they belong together
 
+### **Anatomy of a Single File Component (.vue file)**
+
+A `.vue` file uses the extension `.vue` and neatly breaks down a component into three distinct sections (`[00:05:00]`):
+
+```html
+<!-- 1. TEMPLATE: Pure HTML structure & interpolation -->
+<template>
+  <div class="example-component">
+    <h1>{{ message }}</h1>
+    <p>This is standard HTML managed inside the template.</p>
+  </div>
+</template>
+
+<!-- 2. SCRIPT: JavaScript logic using ES6 modules -->
+<script>
+export default {
+  name: 'ExampleComponent',
+  data() {
+    return {
+      message: 'Hello from Single File Component!'
+    }
+  }
+}
+</script>
+
+<!-- 3. STYLE: CSS styling with optional scoping -->
+<style scoped>
+/* Scoped ensures this CSS only applies to this specific component */
+.example-component {
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+p {
+  font-size: 2em;
+  text-align: center;
+}
+</style>
+
+```
+
+---
+
+### **Key Takeaways for Your Notes:**
+
+* **Template Section (`[00:05:13]`):** Handles the semantic content/markup. It behaves like regular HTML but supports Vue template syntax (like double curly brackets `{{ }}` for data binding).
+* **Script Section (`[00:05:50]`):** Manages the component's internal logic and state using ECMAScript 6 (ES6) module imports and exports (`export default`).
+* **Style Section (`[00:06:45]`):** Handles CSS presentation. Using the **`scoped`** attribute solves the global styling problem by ensuring rules only target elements within that particular component.
 ---
 
 ### **3. Build Tools & Node Package Manager (npm)**
