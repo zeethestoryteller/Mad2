@@ -25,7 +25,7 @@ Vue solves these problems using `.vue` files, which split the code into three cl
 
 * **Separation of Concerns:** Although HTML, CSS, and JS are in one file, they remain cleanly separated by sections because logically they belong together
 
-### **Anatomy of a Single File Component (.vue file)**
+**Anatomy of a Single File Component (.vue file)**
 
 A `.vue` file uses the extension `.vue` and neatly breaks down a component into three distinct sections (`[00:05:00]`):
 
@@ -66,9 +66,7 @@ p {
 
 ```
 
----
-
-### **Key Takeaways for Your Notes:**
+**Key Takeaways for Your Notes:**
 
 * **Template Section (`[00:05:13]`):** Handles the semantic content/markup. It behaves like regular HTML but supports Vue template syntax (like double curly brackets `{{ }}` for data binding).
 * **Script Section (`[00:05:50]`):** Manages the component's internal logic and state using ECMAScript 6 (ES6) module imports and exports (`export default`).
