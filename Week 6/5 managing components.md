@@ -1,4 +1,4 @@
-### managing components
+# Managing Components
 
 ---
 
