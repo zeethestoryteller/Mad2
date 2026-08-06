@@ -1,7 +1,3 @@
-Yahan [W6_L2: Vue - form validation | client side, server side, and custom rules](https://www.youtube.com/watch?v=J_b2hmWUX44) lecture ke har main topic ke neeche usse juda hua code example diya gaya hai taaki aapke notes aur samajh dono acche se clear ho sakein:
-
----
-
 ### 1. Basic Form Validation & DOM Deletion (`v-if`)
 
 * **Concept:** Form fields (`name`, `age`) are bound to data models via `v-model`, and error lists are conditionally added or removed from the DOM using `v-if="errors.length"`.
@@ -51,7 +47,7 @@ Yahan [W6_L2: Vue - form validation | client side, server side, and custom rules
 ---
 
 ### 2. Disabling Browser Defaults & Custom Validation (`novalidate="true"`)
-* **Concept:** Adding `novalidate="true"` to the form tells the browser to stop automatic validation so your custom JavaScript rules take full control [[07:29](https://www.youtube.com/watch?v=J_b2hmWUX44&t=449)].
+* **Concept:** Adding `novalidate="true"` to the form tells the browser to stop automatic validation so your custom JavaScript rules take full control.
 
 ```html
 <form @submit="checkForm" action="https://vuejs.org" method="post" novalidate="true">
@@ -81,7 +77,7 @@ Yahan [W6_L2: Vue - form validation | client side, server side, and custom rules
 
 
 ### 3. Aggregate / Multi-Field Validation (Budget Limit Example)
-* **Concept:** Checking conditions across multiple numerical inputs to ensure they sum up precisely to a required target (e.g., total budget equals 100) before allowing submission [[18:17](https://www.youtube.com/watch?v=J_b2hmWUX44&t=1097)].
+* **Concept:** Checking conditions across multiple numerical inputs to ensure they sum up precisely to a required target (e.g., total budget equals 100) before allowing submission.
 
 
 ```javascript
@@ -109,7 +105,7 @@ checkForm(e) {
 
 ### 4. Asynchronous Server-Side Validation (`fetch` API)
 
-* **Concept:** Performing an asynchronous check against an external backend or server endpoint before finalizing form acceptance [[19:10](https://www.youtube.com/watch?v=J_b2hmWUX44&t=1150)].
+* **Concept:** Performing an asynchronous check against an external backend or server endpoint before finalizing form acceptance.
 
 ```javascript
 async checkForm(e) {
@@ -129,5 +125,3 @@ async checkForm(e) {
   }
 }
 ```
-[[19:21](https://www.youtube.com/watch?v=J_b2hmWUX44&t=1161)]
-http://googleusercontent.com/youtube_content/1
