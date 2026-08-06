@@ -1,5 +1,7 @@
-### Module 6, Lecture 4: Vue Testing & Cross-Browser Strategies
+###Module 6, Lecture 4: Vue Testing & Cross-Browser Strategies
+
 ---
+
 ## 1. Overview of Testing in Vue Applications
 
 Testing is crucial for verifying that components behave as expected under different scenarios. There are three main layers of testing in front-end development:
