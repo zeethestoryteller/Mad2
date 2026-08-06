@@ -1,6 +1,9 @@
 # Form Validation - Quick Guide
 
 ## 2. Form Validation
+Form validation checks whether the user-entered data meets specific predefined criteria before it is processed or submitted. Beyond simple format checks, validation can enforce more sophisticated conditions—such as requiring a specific domain name for an email or ensuring that multiple numerical fields add up to a precise total limit.
+
+Even when client-side validation passes, data must always be revalidated on the server. Browsers and client apps can be bypassed or manipulated by malicious scripts, so a server cannot blindly trust incoming requests
 
 ### Basic Validation Example
 ```javascript
@@ -63,6 +66,7 @@ const Home = {
 - `v-if="errors.name"` - Shows error message if validation fails
 - `:disabled="!isFormValid"` - Disables submit button until form is valid
 - `submitForm()` - Validates all fields before submission
+- `@submit.prevent="submitForm"` : Yeh JavaScript ke native `event.preventDefault()` ki tarah hi kaam karta hai, jo form submit hone par page ko reload hone se rokata hai taaki Vue ka submitForm method bina page refresh ke execute ho sake. in JavaScript it stops native behavior of form so custom validation logic can take over.
 
 ### What is `computed` doing here?
 
