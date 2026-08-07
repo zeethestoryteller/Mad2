@@ -1,24 +1,40 @@
-### 1. Introduction to Vuex & Store Concepts [[00:15](https://www.youtube.com/watch?v=ml8gFCV7l8s&t=15)]
+### 1. Introduction to Vuex & Store Concepts
 
 * **What is Vuex?** It is an official state management library specifically built for the Vue.js framework, designed to manage application-wide states.
 * **Global Store:** It introduces a centralized, globally accessible store object that holds the application's shared data (state) tree, making it accessible to all components.
 
 ---
 
-### 2. Vuex Store Structure, State, and Components [[01:17](https://www.youtube.com/watch?v=ml8gFCV7l8s&t=77)]
+### 2. Vuex Store Structure, State, and Components 
 
 * **Store Instantiation:** The store is created as a new instance of the `Vuex.Store` class at the root level of the application.
 * **State vs. Data:** In standard Vue components, data is managed locally. In Vuex, this is replaced by the centralized `state` object.
 * **Component State Access:** Components can read global state values directly or through computed properties.
 
+Vuex Store Definition
 ```javascript
-// Accessing state directly via computed properties
-computed: {
-  count() {
-    return this.$store.state.count;
+const store = new Vuex.Store({
+  state: {
+    count: 1
+  },
+  mutations: {
+    increment (state) {
+      // mutate state
+      state.count++
+    }
+  }
+})
+```
+Component Usage
+```javascript
+const Counter = {
+  template: `<div>{{ count }}</div>`,
+  computed: {
+    count () {
+      return store.state.count
+    }
   }
 }
-
 ```
 
 ---
@@ -54,6 +70,9 @@ mutations: {
 // Committing a mutation with arguments
 store.commit('increment', 10);
 
+// Committing a mutation without arguments
+store.commit('increment');
+
 // Alternatively, passing an entire payload object
 store.commit({
   type: 'increment',
@@ -75,10 +94,40 @@ store.commit({
 
 * **State Logging:** Vue dev tools record every committed mutation along with its timestamp and request details.
 * **Time Travel:** Because mutations are logged sequentially, developers can reset the application state and replay mutations up to step $n-1$ to inspect past states.
-
 ---
 
-### 8. Introduction to Actions for Asynchronous Operations [[12:22](https://www.youtube.com/watch?v=ml8gFCV7l8s&t=742)]
+### 8. Actions
+
+* Mutations Synchronous Hone Chahiye: Mutations ke andar koi bhi asynchronous (async) call allow nahi hoti, kyunki agar operations asynchronous honge toh state changes ko accurately track aur time-travel debug karna mushkil ho jayega.
+
+* Actions Async Functionality Handle Kar Sakte Hain: Jahaan asynchronous operations ki zaroorat ho, wahan hum Actions ka use karte hain.
+
+* Actions State Ko Directly Change Nahi Karte: Actions khud state ko mutate nahi karte, balki woh andar se mutations ko commit karte hain.
+
+```javascript
+actions: {
+  increment ({ commit }) {
+    commit('increment')
+  }
+}
+
+store.dispatch('increment')
+```
+**Defining the Action (actions: { increment ({ commit }) })**
+
+  * Yahan increment naam ka ek action define kiya gaya hai jo context object me se { commit } method ko extract karta hai.
+
+  * Yeh action andar ek mutation ko call (commit('increment')) kar raha hai.
+
+**Dispatching the Action (store.dispatch('increment'))**
+
+  *  Jaise mutations ko run karne ke liye store.commit() use hota hai, waise hi actions ko trigger karne ke liye store.dispatch() ka use kiya jata hai.
+
+  *  Yeh function asynchronous tasks ko handle karne ke baad eventually mutation ko commit kar deta hai.
+
+
+# **Introduction to Actions for Asynchronous Operations**
+
 
 * **Actions:** Since mutations cannot handle asynchronous code, Vuex introduces **actions**.
 * **Dispatching Actions:** Instead of committing an action directly, you **dispatch** it using `store.dispatch()`.
@@ -99,10 +148,36 @@ actions: {
 store.dispatch('checkoutCart', orderDetails);
 
 ```
+# **Action Composition**
+
+Vuex actions are asynchronous by nature (often returning JavaScript **Promises**). **Action composition** allows you to chain or coordinate multiple actions together. This means one action can trigger (`dispatch`) another action, wait for it to finish, and then execute subsequent tasks or commit mutations.
+
+```javascript
+// assuming `getData()` and `getOtherData()` return Promises
+actions: {
+  async actionA ({ commit }) {
+    commit('gotData', await getData())
+  },
+  async actionB ({ dispatch, commit }) {
+    await dispatch('actionA') // wait for `actionA` to finish
+    commit('gotOtherData', await getOtherData())
+  }
+}
+
+```
+
+1. **`actionA`:**
+* Declared as an `async` function.
+* It waits (`await`) for an asynchronous function `getData()` to resolve, and then commits the mutation `gotData` with the retrieved payload.
+
+
+2. **`actionB`:**
+* Also declared as an `async` function, destructuring both `{ dispatch, commit }`.
+* It uses `await dispatch('actionA')` to explicitly pause execution until `actionA` has completed successfully.
+* Once `actionA` finishes, it moves forward to fetch `getOtherData()` and commits the `gotOtherData` mutation.
 
 ---
 
-### 9. Summary and When to Use Vuex [[16:30](https://www.youtube.com/watch?v=ml8gFCV7l8s&t=990)]
-
+### 9. Summary and When to Use Vuex 
 * **Complexity Tradeoff:** Vuex introduces boilerplate and structural overhead.
 * **Decision Rule:** For small applications with simple component trees, standard Vue props and local state are sufficient. Vuex should only be adopted when application state management becomes complex and hard to maintain across multiple views.
