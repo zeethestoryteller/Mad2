@@ -75,8 +75,8 @@ p {
 
 ### **3. Build Tools & Node Package Manager (npm)**
 
-* **Compilation:** Browsers cannot read `.vue` files directly, so a build/packaging tool is required to convert `.vue` files into standard JS, CSS, and HTML.
-Examples: Webpack, Rollup, ESBuild.
+* **Compilation:** Browsers cannot read `.vue` files directly, so a build/packaging tool is required to convert(compiled) `.vue` files into standard JS, CSS, and HTML.
+Examples: Webpack, Rollup, ESBuild, Vue CLI, Vite.
 
 
 * **npm (Node Package Manager):**
