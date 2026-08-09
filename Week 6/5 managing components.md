@@ -76,9 +76,9 @@ p {
 ### **3. Build Tools & Node Package Manager (npm)**
 
 * **Compilation:** Browsers cannot read `.vue` files directly, so a build/packaging tool is required to convert `.vue` files into standard JS, CSS, and HTML.
-* *Examples:* Webpack, Rollup, ESBuild.
+Examples: Webpack, Rollup, ESBuild.
 
 
 * **npm (Node Package Manager):**
-* Systematically manages JavaScript modules and dependencies.
-* **Drawbacks:** Can consume significant disk space (heavy `node_modules` folders) and introduces potential security concerns like **supply chain attacks** (`[00:11:22]`) from third-party packages.
+  * Systematically manages JavaScript modules and dependencies.
+  * **Drawbacks:** Can consume significant disk space (heavy `node_modules` folders) and introduces potential security concerns like **supply chain attacks** (`[00:11:22]`) from third-party packages.
