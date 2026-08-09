@@ -40,6 +40,16 @@ Modern browsers provide three primary mechanisms for local storage:
 * **Local Storage:**
   * Persists across browser restarts and computer reboots.
   * Remains accessible until explicitly cleared via code or developer tools.
+* Both localStorage and sessionStorage can store data in key-value pair format
+```JavaScript
+// Data store karna (Dono mein tarika bilkul same hota hai)
+localStorage.setItem('username', 'Zeeshan');
+sessionStorage.setItem('theme', 'dark');
+
+// Data retrieve karna
+let user = localStorage.getItem('username'); // Output: 'Zeeshan'
+let theme = sessionStorage.getItem('theme'); // Output: 'dark'
+```
 
 ---
 
