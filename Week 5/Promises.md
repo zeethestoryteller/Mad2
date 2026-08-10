@@ -48,7 +48,8 @@ setTimeout(() => {
 });
 ```
 # Consuming a Promise (.then, .catch, .finally)
-You interact with promises using .then() for success, .catch() for errors, and .finally() for cleanup code that runs regardless of the outcome.
+You interact with promises using `.then()` for success, `.catch()` for errors, and `.finally()` for cleanup code that runs regardless of the outcome.
+
 ```JavaScript
 
 fetchUserData
@@ -96,6 +97,68 @@ console.log("Loading user posts...");
 processUserFlow();
 ```
 ---
+### Example of async function:
+
+Ye JavaScript code ek async function ka use karke API se data fetch karne aur errors ko handle karne ke liye likha gaya hai. 
+
+***`FetchFunct` Function Definition***
+
+```javascript
+async function FetchFunct(ApiUrl) {
+    const response = await fetch(ApiUrl).catch(() => {
+        throw new Error('Network Error')
+    })
+
+```
+
+* **`async function`**: Yeh ek asynchronous function hai jo promises ke sath kaam karta hai (`await` keyword ka use karne ke liye).
+* **`fetch(ApiUrl)`**: Yeh di gayi URL (`ApiUrl`) par HTTP request bhejta hai.
+* **`.catch(...)`**: Agar network connection fail hojata hai (jaise internet nahi hai ya URL invalid hai), toh yeh catch block chalega aur `Network Error` throw kar dega.
+
+
+
+***Response Ko Check karna aur Parse karna***
+
+```javascript
+    if (response) {
+        if (response.ok) {
+            const data = await response.json().catch(() => {
+                throw new Error('Unexpected Error')
+            })
+            if (data) {
+                return data
+            }
+        } else {
+            throw new Error(response.statusText)
+        }
+    }
+}
+
+```
+
+* **`response.ok`**: Yeh check karta hai ki HTTP response status successful hai ya nahi (status code 200–299 ke beech mein hai ya nahi).
+* **`response.json()`**: Agar response ok hai, toh yeh response body ko JSON object mein parse karta hai.
+* **Inner `.catch(...)**`: Agar server se data JSON format mein nahi aata ya parsing fail ho jati hai, toh yeh `Unexpected Error` throw karta hai.
+* **`else` Block**: Agar response successful nahi hota (jaise 404 Not Found ya 500 Server Error), toh yeh server ka status text (`response.statusText`, jaise "Not Found") error ke roop mein throw kar deta hai.
+
+***Function Call aur Execution***
+
+```javascript
+const url = 'dummyUrl'
+FetchFunct(url)
+    .then((data) => {
+        console.log(data)
+    })
+    .catch((err) => {
+        console.log(err.message)
+    })
+
+```
+
+* **`const url = 'dummyUrl'`**: Ek dummy URL variable banaya gaya hai. (Note: `'dummyUrl'` ek valid URL nahi hai, isliye yeh network ya request fail kar dega).
+* **`.then(...)`**: Agar function successfully data return karta hai, toh woh data console par print ho jata hai.
+* **`.catch(...)`**: Agar function ke andar koi error throw hota hai (jaise question paper ke Question 4 mein diya gaya hai ki `dummyUrl` HTML payload return karta hai ya network/parsing fail hoti hai), toh error ka message console par print ho jata है.
+---
 ### 5. Handling Multiple Promises Concurrently
 If you have multiple asynchronous tasks that do not depend on each other, running them sequentially with await wastes time. Instead, run them concurrently.
 *	Promise.all([p1, p2, p3]): Waits for all promises to resolve. If any promise rejects, the whole thing fails.
@@ -118,5 +181,8 @@ async function loadDashboard() {
 }
 loadDashboard();
 ```
+---
 
-From <https://gemini.google.com/app?utm_source=app_launcher&utm_medium=owned&utm_campaign=base_all> 
+### Note:
+
+1. `reponse.ok`: Yeh check karta hai ki HTTP response status successful hai ya nahi (status code 200–299 ke beech mein hai ya nahi)
