@@ -146,6 +146,19 @@ Meaning:
 
 /contact   → Contact Component
 ```
+### Nested Route:
+```javascript
+{ 
+  path: '/user/:name', 
+  component: user,
+  children: [ 
+    { path: '', component: home },          // URL: /user/mohan
+    { path: 'home', component: home },      // URL: /user/mohan/home
+    { path: 'profile', component: profile } // URL: /user/mohan/profile
+  ]
+}
+
+```
 
 ---
 
