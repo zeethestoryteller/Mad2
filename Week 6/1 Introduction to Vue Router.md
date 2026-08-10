@@ -354,6 +354,53 @@ Displays inside <router-view>
 
 ---
 
+# Vue Router Built-in Properties:
+Vue Router mein current route aur router instance ke andar kai useful built-in properties aur methods hote hain. Inhe main do categories mein divide kiya ja sakta hai:
+
+### 1. `this.$route` (Current Route Properties)
+
+Yeh object aapko **current active route** ki sari details deta hai. Iski main built-in properties yeh hain:
+
+* **`this.$route.path`**: Current route ka string path return karta hai (jaise `"/about"`).
+* **`this.$route.params`**: Dynamic route parameters ko store karne wala object (jaise `/user/:id` mein `id` ki value).
+* **`this.$route.query`**: URL ke query string parameters ko store karne wala object (jaise `?update=true`).
+* **`this.$route.hash`**: URL ka hash (#) part (jaise `#section1`).
+* **`this.$route.name`**: Current route ka registered name (agar define kiya gaya ho).
+* **`this.$route.fullPath`**: Query aur hash ke sath complete resolved URL string.
+* **`this.$route.matched`**: Current route ke sabhi nested route records ka array.
+* **`this.$route.meta`**: Route ke sath define kiye gaye custom meta fields.
+    * Example: Agar aapne meta: { requiresAuth: true } likha hai, toh `this.$route.meta.requiresAuth` ki value true hogi.
+
+
+### 2. `this.$router` (Router Instance Methods & Properties)
+
+Yeh poore router instance ko control karne ke liye use hota hai. Iski main properties aur methods yeh hain:
+
+* **`this.$router.push()`**: Naya route history stack mein add karne ke liye (navigation ke liye).
+```javascript
+this.$router.push('/dashboard');
+// Ya object ke sath:
+this.$router.push({ name: 'UserProfile', params: { id: 10 } });
+```
+* **`this.$router.replace()`**: Bina history stack mein naya entry banaye current route ko replace karne ke liye.
+
+```javascript
+this.$router.replace('/login');
+```
+* **`this.$router.go()`**: Browser history mein aage ya peeche move karne ke liye (jaise `router.go(-1)`).
+
+```javascript
+this.$router.go(-1); // Ek step peeche (Back) jaane ke liye
+this.$router.go(1);  // Ek step aage jaane ke liye
+```
+* **`this.$router.currentRoute`**: Current route object ko access karne ka ek aur tarika.
+
+
+
+
+
+
+---
 # Key Points to Remember
 
 * Vue Router is the official routing library for Vue.js.
