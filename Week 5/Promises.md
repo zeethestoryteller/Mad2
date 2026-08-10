@@ -7,7 +7,9 @@ Here is a step-by-step guide to mastering asynchronous JavaScript, moving from t
 ### 1. Why Do We Need Asynchronicity?
 JavaScript is single-threaded, meaning it executes one command at a time on a single main thread. If a task takes 5 seconds to complete (e.g., downloading a large file), a synchronous program would freeze completely for 5 seconds.
 Asynchronous programming solves this by sending off background tasks and continuing to run the rest of the code immediately. Once the background task finishes, its result is handled via callbacks, promises, or async/await.
-2. Callbacks (The Old Way)
+
+---
+### 2. Callbacks (The Old Way)
 A callback is simply a function passed as an argument to another function, to be executed once an asynchronous operation is complete.
 ```JavaScript
 
@@ -28,9 +30,9 @@ When you have multiple dependent asynchronous operations, callbacks must be nest
 ### 3. Enter Promises
 A Promise is an object representing the eventual completion (or failure) of an asynchronous operation and its resulting value.
 A Promise can be in one of three states:
-	1. Pending: Initial state; neither fulfilled nor rejected.
-	2. Fulfilled (Resolved): The operation completed successfully, and the promise now has a value.
-	3. Rejected: The operation failed, and the promise has a reason (error).
+1. Pending: Initial state; neither fulfilled nor rejected.
+2. Fulfilled (Resolved): The operation completed successfully, and the promise now has a value.
+3. Rejected: The operation failed, and the promise has a reason (error).
 Creating a Promise
 ```JavaScript
 
@@ -45,7 +47,7 @@ setTimeout(() => {
   }, 1500);
 });
 ```
-**Consuming a Promise (.then, .catch, .finally)**
+# Consuming a Promise (.then, .catch, .finally)
 You interact with promises using .then() for success, .catch() for errors, and .finally() for cleanup code that runs regardless of the outcome.
 ```JavaScript
 
@@ -68,8 +70,8 @@ fetchUserData
 ### 4. Modern Standard: Async / Await
 Introduced in ES2017, async and await are syntactic sugar built on top of Promises. They let you write asynchronous code that looks and behaves like synchronous code, making it much easier to read and maintain.
 Using async and await
-	• Mark a function with the async keyword to make it automatically return a promise.
-	• Use the await keyword inside an async function to pause execution until the promise settles (resolves or rejects).
+* Mark a function with the async keyword to make it automatically return a promise.
+* Use the await keyword inside an async function to pause execution until the promise settles (resolves or rejects).
 ```JavaScript
 
 // A helper function returning a promise
@@ -96,9 +98,9 @@ processUserFlow();
 ---
 ### 5. Handling Multiple Promises Concurrently
 If you have multiple asynchronous tasks that do not depend on each other, running them sequentially with await wastes time. Instead, run them concurrently.
-	• Promise.all([p1, p2, p3]): Waits for all promises to resolve. If any promise rejects, the whole thing fails.
-	• Promise.allSettled([p1, p2, p3]): Waits for all promises to finish, regardless of whether they succeed or fail, returning an array of their statuses.
-	• Promise.race([p1, p2]): Returns the result of the first promise that settles (wins the race).
+*	Promise.all([p1, p2, p3]): Waits for all promises to resolve. If any promise rejects, the whole thing fails.
+*	Promise.allSettled([p1, p2, p3]): Waits for all promises to finish, regardless of whether they succeed or fail, returning an array of their statuses.
+*	Promise.race([p1, p2]): Returns the result of the first promise that settles (wins the race).
 ```JavaScript
 
 const fetchUsers = Promise.resolve(["Alice", "Bob"]);
