@@ -1,7 +1,15 @@
 ### 1. Introduction to Vuex & Store Concepts
 
 * **What is Vuex?** It is an official state management library specifically built for the Vue.js framework, designed to manage application-wide states.
-* **Global Store:** It introduces a centralized, globally accessible store object that holds the application's shared data (state) tree, making it accessible to all components.
+* **Global Store:** Yeh ek central container ya dabba hota hai jiske andar yeh poora state (aur usko badalne ke tareeqe) rakha jata hai. Kyunki yeh global hota hai, isliye aapke app ka koi bhi component kahin se bhi ismein rakhe data ko access ya update kar sakta hai.
+
+*  **State** (Data): Yeh aapke app ka data ya information hoti hai (jaise user ka naam, shopping cart ke items, ya counter ki value). Yeh woh saari cheezein hain jo aapki screen par dikhti hain ya backend se manage hoti hain.
+
+* **Asaan misaal:** Maan lijiye ek bada restaurant hai.
+
+  * State us restaurant ka stock (jaise kitni plate biryani bachi hai) hai.
+
+  * Store woh central store room hai jahan woh poora stock rakha hai, jise restaurant ka koi bhi waiter ya chef check kar sakta hai.
 
 ---
 
