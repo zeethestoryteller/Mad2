@@ -1,5 +1,14 @@
 # Mad2
 
+
+**Week**
+[Week-2-3_OS](https://github.com/shrikrishna97/Resources-App-Dev/blob/main/App-Dev-2/Week-2/Week-2-3_OS.md)
+[Week-1-2_OS](https://github.com/shrikrishna97/Resources-App-Dev/blob/main/App-Dev-2/Week-1/Week-1-2_OS.md)
+
+**Week 4**
+*  [LifeCycle_hooks_in_Vue](https://github.com/shrikrishna97/Resources-App-Dev/blob/main/App-Dev-2/Week-4/LifeCycle_hooks_in_Vue.md)
+*  [vueComponentsAndHooks](https://github.com/shrikrishna97/Resources-App-Dev/blob/main/App-Dev-2/Week-4/vueComponentsAndHooks.md)
+
 **Quiz:**
 *  [Quiz 1](https://github.com/shrikrishna97/Resources-App-Dev/blob/main/App-Dev-2/Quiz-1%20Revision/Quiz-1_Revision_Notes_JS_Vue.md)
 *  [Quiz 2](https://github.com/shrikrishna97/Resources-App-Dev/blob/main/App-Dev-2/Quiz-2%20Revision/short-notes.md)
