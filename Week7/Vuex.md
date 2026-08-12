@@ -77,6 +77,7 @@ const store = new Vuex.Store({
   }
 });
 ```
+
 ```JavaScript
 
 //Accessing Getters in Components
