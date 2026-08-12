@@ -59,6 +59,42 @@ const Counter = {
 * **Getters:** Used for convenience to compute derived state based on store state values, avoiding repetitive logic across components.
 * **`this.$store` Injection:** Registering Vuex automatically injects the `$store` property into all child components, allowing them to access the global store seamlessly.
 
+```JavaScript
+//Todo List
+
+const store = new Vuex.Store({
+  state: {
+    todos: [
+      { id: 1, text: 'Learn Vue', done: true },
+      { id: 2, text: 'Learn Vuex', done: false }
+    ]
+  },
+  getters: {
+    // Define a getter to filter completed todos
+    doneTodos: state => {
+      return state.todos.filter(todo => todo.done);
+    }
+  }
+});
+```
+```JavaScript
+
+//Accessing Getters in Components
+
+const TodoList = {
+  template: `
+    <ul>
+      <li v-for="todo in doneTodos" :key="todo.id">{{ todo.text }}</li>
+    </ul>
+  `,
+  computed: {
+    doneTodos() {
+      // Accessing the getter from the store
+      return this.$store.getters.doneTodos;
+    }
+  }
+};
+```
 ---
 
 ### 5. Making Changes via Committing Mutations [[05:42](https://www.youtube.com/watch?v=ml8gFCV7l8s&t=342)]
@@ -121,13 +157,13 @@ actions: {
 
 store.dispatch('increment')
 ```
-**Defining the Action (actions: { increment ({ commit }) })**
+**Defining the Action (actions: `{ increment ({ commit }) }`)**
 
   * Yahan increment naam ka ek action define kiya gaya hai jo context object me se { commit } method ko extract karta hai.
 
   * Yeh action andar ek mutation ko call (commit('increment')) kar raha hai.
 
-**Dispatching the Action (store.dispatch('increment'))**
+**Dispatching the Action (`store.dispatch('increment')`)**
 
   *  Jaise mutations ko run karne ke liye store.commit() use hota hai, waise hi actions ko trigger karne ke liye store.dispatch() ka use kiya jata hai.
 
