@@ -78,6 +78,56 @@ Webhooks are great for server-to-server event notifications, but they are not th
 
 
 ---
+## WebSocket: Initial Handshake
+
+WebSocket gives a **persistent, full-duplex** connection between client and server. The connection starts as an HTTP request, then **upgrades** to WebSocket.
+
+### Why WebSocket Instead of HTTP?
+
+```
+HTTP:    Client → Request → Server → Response → Connection closed
+         (must re-open for every message)
+
+WebSocket: Client ←→ Server (one open connection, both can send any time)
+```
+
+### The Handshake (Step by Step)
+
+```
+1) Client sends HTTP GET with upgrade headers:
+
+   GET /chat HTTP/1.1
+   Host: example.com
+   Upgrade: websocket
+   Connection: Upgrade
+   Sec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ==
+   Sec-WebSocket-Version: 13
+
+2) Server responds with 101 Switching Protocols:
+
+   HTTP/1.1 101 Switching Protocols
+   Upgrade: websocket
+   Connection: Upgrade
+   Sec-WebSocket-Accept: s3pPLMBiTxaQ9kYGzzhZRbK+xOo=
+
+3) After 101, HTTP is done. The TCP connection stays open as WebSocket.
+   Both sides can now send/receive frames directly.
+```
+
+### Key Headers Explained
+
+| Header | Who sends it | Purpose |
+|---|---|---|
+| `Upgrade: websocket` | Client | Request protocol switch |
+| `Connection: Upgrade` | Client | Tell server this is an upgrade request |
+| `Sec-WebSocket-Key` | Client | Random Base64 nonce for handshake verification |
+| `101 Switching Protocols` | Server | Handshake accepted |
+| `Sec-WebSocket-Accept` | Server | Derived from client's key (proves server handled it) |
+
+> **Quick rule:** WebSocket starts as HTTP then upgrades with a 101 response. After that, it is a raw TCP pipe — no headers, no request-response, just frames going both ways.
+
+---
+---
 
 ## 4. Debugging and Development Tools
 
