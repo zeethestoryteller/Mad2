@@ -60,18 +60,18 @@ if __name__ == '__main__':
 
 Webhooks are great for server-to-server event notifications, but they are not the only tool available. Depending on your use case, consider these alternatives:
 
-* **WebSockets:**
+**WebSockets:**
 * Unlike stateless HTTP, WebSockets establish a **two-way, real-time communication channel** over TCP (`[00:09:54]`).
 * The connection stays open, allowing both the client and server to push messages at any time.
 * *Use cases:* Chat apps, interactive terminal shells (like Google Cloud Shell) (`[00:11:37]`).
 
 
-* **Pub/Sub (Publish-Subscribe):**
+**Pub/Sub (Publish-Subscribe):**
 * Asynchronous message queue systems (e.g., Apache Kafka, cloud message brokers) (`[00:12:20]`).
 * Ideal for large-scale distributed architectures, but often overkill for simple server-to-server webhooks (`[00:13:01]`).
 
 
-* **Polling (Pull Mechanism):**
+**Polling (Pull Mechanism):**
 * Instead of the server *pushing* data via a webhook, the client repeatedly *asks* the server if there are updates at regular intervals (`[00:13:50]`).
 * *Drawback:* Can easily flood and overload servers if used with too many clients (`[00:14:43]`).
 
