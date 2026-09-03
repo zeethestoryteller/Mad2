@@ -7,6 +7,7 @@ layout: default
 ## What is JWT?
 
 **JWT (JSON Web Token)** is a compact, URL-safe way to represent claims between two parties. It's commonly used for **authentication** in web applications.
+>JWTs are stateless and eliminate the need for server-side session storage. JSON Web Tokens (JWTs) contain all the necessary user information and claims directly within the token itself, which is signed cryptographically and stored on the client side. This design allows the server to verify the user's identity without having to query a database or memory cache for session IDs on every request, providing a fully stateless authentication architecture.
 
 A JWT consists of three parts separated by dots (`.`):
 ```
