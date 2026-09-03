@@ -13,6 +13,12 @@ A JWT consists of three parts separated by dots (`.`):
 ```
 header.payload.signature
 ```
+> `The Header` specifies metadata and the signing algorithm (e.g., HS256).
+
+> `The Payload` contains the claims, which include user-related identity information (like username or user ID), roles, and expiration time (exp).
+
+> `The Signature` is used to verify that the token hasn't been tampered with.
+
 
 Example:
 ```
