@@ -12,6 +12,7 @@
 **Quiz:**
 *  [Quiz 1](https://github.com/shrikrishna97/Resources-App-Dev/blob/main/App-Dev-2/Quiz-1%20Revision/Quiz-1_Revision_Notes_JS_Vue.md)
 *  [Quiz 2](https://github.com/shrikrishna97/Resources-App-Dev/blob/main/App-Dev-2/Quiz-2%20Revision/short-notes.md)
+*  [End Term](https://github.com/shrikrishna97/Resources-App-Dev/blob/main/App-Dev-2/ET%20Revision/end-sem-notes.md)
 
 **Week 5**
 *  [Fetch API](https://github.com/zeethestoryteller/Mad2/blob/main/Week%205/Fetch%20API.md)
