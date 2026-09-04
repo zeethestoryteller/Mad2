@@ -58,6 +58,10 @@
 * []()
 * []()
 
+**Week 11**
+* []()
+* []()
+
 **Week 12**
 * [Privacy vs. Security in Modern Web Applications](http://github.com/zeethestoryteller/Mad2/blob/main/Week%2012/Privacy%20and%20Security.md)
 * [Frontend Security (XSS, CSRF, CORS & Best Practices)](https://github.com/zeethestoryteller/Mad2/blob/main/Week%2012/Frontend%20Security.md)
