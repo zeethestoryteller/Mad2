@@ -7,15 +7,16 @@
 
 ### 2. Single Page Applications (SPAs)
 
-* **What it is ([[03:11](https://www.youtube.com/watch?v=CYcSh23IFbk&t=191)]):** A dynamic website built on a **single** HTML page. As you interact with the app, JavaScript rewrites parts of the current page dynamically rather than triggering full page reloads.
-* **Real-world Examples ([[03:58](https://www.youtube.com/watch?v=CYcSh23IFbk&t=238)]):** Gmail, Facebook, and **Google Maps** (which pioneered seamless background loading of tiles as you zoom in [[04:41](https://www.youtube.com/watch?v=CYcSh23IFbk&t=281)]).
-* **How it looks in a Vue/JavaScript stack ([[18:03](https://www.youtube.com/watch?v=CYcSh23IFbk&t=1083)]):**
+**What it is ([[03:11](https://www.youtube.com/watch?v=CYcSh23IFbk&t=191)]):** A dynamic website built on a **single** HTML page. As you interact with the app, JavaScript rewrites parts of the current page dynamically rather than triggering full page reloads.
+* **Real-world Examples ([[03:58](https://www.youtube.com/watch?v=CYcSh23IFbk&t=238)]):** Gmail, Facebook, and **Google Maps** (which pioneered seamless background loading of tiles as you zoom in.
+
+**How it looks in a Vue/JavaScript stack:**
 * **Backend:** A thin server providing API endpoints (e.g., using Python/Flask).
 * **Frontend:** Built using Vue components and state management libraries.
 * **Routing:** Handled smoothly by a client-side router (`vue-router`) to switch views without reloading the page.
 
 
-* **Challenges of SPAs ([[16:24](https://www.youtube.com/watch?v=CYcSh23IFbk&t=984)]):**
+**Challenges of SPAs:**
 * **SEO (Search Engine Optimization):** Search engine crawlers usually read raw HTML and might not execute JavaScript or click internal routers properly.
 * **Analytics:** Traditional pageview tracking tools (like Google Analytics) don't trigger automatically when a component changes unless explicitly coded.
 
