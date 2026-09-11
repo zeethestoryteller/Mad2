@@ -4,7 +4,8 @@
 
 **Where we left off:** In previous classes, we talked about **message queues** and how they help us build **task queues** for backend services (like handling background emails, SMS, or payments).
 * **The Problem with Tight Coupling:** A typical web app has multiple servers (frontend, database, email service, payment gateway) working together. If one fails, the app breaks.
-### **The Message Broker Solution:** Instead of point-to-point connections, we put a message broker (like Redis or RabbitMQ) in the middle.
+### **The Message Broker Solution:** 
+Instead of point-to-point connections, we put a message broker (like Redis or RabbitMQ) in the middle.
     * Server A pushes a message to the queue.
     * The message broker guarantees delivery, ordering, and automatic retries.
     * Server B picks it up and processes it asynchronously.
