@@ -3,7 +3,8 @@
 ## 1. What is a Webhook?
 
 **Definition:** A webhook is a way for an application to provide other applications with real-time information [[00:30](https://www.youtube.com/watch?v=vVXiXZhn7hM&t=30)].
-### The Core Idea: As soon as an event happens on **Server A**, it automatically pushes a notification/message to **Server B** [[01:29](https://www.youtube.com/watch?v=vVXiXZhn7hM&t=89)].
+### The Core Idea: 
+As soon as an event happens on **Server A**, it automatically pushes a notification/message to **Server B** [[01:29](https://www.youtube.com/watch?v=vVXiXZhn7hM&t=89)].
 ### Alternative Names:
 * **Web Callback:** You register a callback URL so that when an event occurs, the system "calls you back" on that specific endpoint [[02:45](https://www.youtube.com/watch?v=vVXiXZhn7hM&t=165)].
 * **HTTP Push API:** It acts like an API interface, but instead of you pulling data, it pushes data using the HTTP protocol [[01:47](https://www.youtube.com/watch?v=vVXiXZhn7hM&t=107)].
