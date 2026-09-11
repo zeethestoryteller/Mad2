@@ -14,6 +14,16 @@ Instead of point-to-point connections, we put a message broker (like Redis or Ra
 **The Limitation:** Message queues are fantastic for internal services within the same data center. But what happens when we scale to **internet-distributed services** (e.g., using third-party services like Twilio, GitHub, or AWS)? Setting up a message broker across the public internet introduces heavy infrastructure and complex authentication overhead.
 
 ---
+**Message Broker** and **Message Queue**, **Core Differences**
+
+| Feature | Message Queue | Message Broker |
+| --- | --- | --- |
+| **Communication Pattern** | Point-to-Point (1-to-1) | Point-to-Point, Publish-Subscribe, Request-Reply (1-to-many or complex routing) |
+| **Message Lifetime** | Usually deleted immediately after successful processing by a single consumer. | Can retain messages for multiple consumers, persist them to disk, or broadcast them via topics. |
+| **Routing Logic** | Simple FIFO (First-In, First-Out) buffer. | Advanced routing using rules, exchanges, topic filters, and transformations. |
+| **Primary Focus** | Task distribution, load leveling, and background job processing. | Enterprise service integration, decoupling complex distributed systems, and event broadcasting. |
+| **Popular Examples** | Amazon SQS (standard queues), RabbitMQ (basic queue mode), Redis (Lists). | Apache Kafka, RabbitMQ (exchanges/topics), Apache Pulsar, AWS SNS/SQS combo. |
+---
 
 ## 2. Moving to Internet-Distributed Services & Lightweight APIs
 
